@@ -1,0 +1,176 @@
+:root {
+    --Moderate_Violet: hsl(263, 55%, 52%);
+    --Very_Dark_Grayish_Blue: hsl(217, 19%, 35%);
+    --Very_Dark_Blackish_Blue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+    --Light_Gray: hsl(0, 0%, 81%);
+    --Light_Grayish_Blue: hsl(210, 46%, 95%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 13px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100svh;
+    font-family: "Barlow Semi Condensed";
+    background-color: var(--Light_Grayish_Blue);
+}
+
+main {
+    width: 1440px;
+    height: 900px;
+    .grid_wrapper {
+        display: grid;
+        row-gap: 1.75rem;
+        column-gap: 2.25rem;
+        margin: 11.5%;
+        height: 63.5%;
+        .card {
+            padding: 1.88rem 2.5rem;
+            border-radius: 8px;
+            .card_header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 1.3rem;
+                .avatar {
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    margin-right: 1.25rem;
+                }
+                .card_header_text {
+                    .name {
+                        font-size: 1rem;
+                        font-weight: 600;
+                    }
+                    .status {
+                        font-size: 0.85rem;
+                        font-weight: 500;
+                        opacity: 0.5;
+                    }
+                }
+            }
+            .card_text {
+                .big_quote {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    line-height: 1.75rem;
+                    margin-bottom: 1.25rem;
+                    letter-spacing: 0.01px;
+                }
+                .small_quote {  
+                    font-size: 1rem;
+                    font-weight: 500;
+                    line-height: 1.4rem;
+                    opacity: 0.7;
+                }
+            }
+    }
+        .card_01 {
+            grid-area: one;
+            background-color: var(--Moderate_Violet);
+            background-image: url(../img/bg-pattern-quotation.svg);
+            background-repeat: no-repeat;
+            background-position-y: top;
+            background-position-x: 80%;
+            .avatar {
+                outline: 2px solid;
+                outline-color: hsla(0, 0%, 81%, 0.5);
+            }
+            .name {
+                color: var(--White);
+            }
+            .status {
+                color: var(--Light_Gray);
+            }
+            .big_quote {
+                color: var(--White);
+            }
+            .small_quote {
+                color: var(--Light_Gray);
+            }
+        }
+        .card_02 {
+            grid-area: two;
+            background-color: var(--Very_Dark_Grayish_Blue);
+            color: var(--White);
+        }
+        .card_03 {
+            grid-area: three;
+            background-color: var(--White);
+            color: var(--Very_Dark_Grayish_Blue);
+        }
+        .card_04 {
+            grid-area: four;
+            background-color: var(--Very_Dark_Blackish_Blue);
+            .avatar {
+                outline: 2px solid var(--Moderate_Violet);
+            }
+            .name {
+                color: var(--White);
+            }
+            .status {
+                color: var(--Light_Gray);
+            }
+            .big_quote {
+                color: var(--White);
+            }
+            .small_quote {
+                color: var(--Light_Gray);
+            }
+        }    
+        .card_05 {
+            grid-area: five;
+            background-color: var(--White);
+            color: var(--Very_Dark_Grayish_Blue);
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        width: 375px;
+        height: 1966px;
+        margin-bottom: 10svh;
+    }
+    .grid_wrapper {
+        grid-template-areas: 
+        "one"
+        "two"
+        "three"
+        "four"
+        "five";
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    main {
+        margin-bottom: 50svh;
+    }
+    .grid_wrapper {
+        grid-template-areas: 
+        "one three"
+        "one two"
+        "four four"
+        "five five";
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .grid_wrapper {
+        grid-template-areas: 
+        "one one one one one one one one one two two two two five five five"
+        "three three three three four four four four four four four four four five five five";
+    }
+}
